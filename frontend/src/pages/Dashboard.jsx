@@ -1,90 +1,98 @@
-import React from "react";
-import "../components/signin.css";
-import "../components/dashboard.css";
-
-import "./BorrowedBooks.jsx"
-import "./ReturnedBooks.jsx"
-import logo from "../assets/react.svg";
-
-
+import Sidebar from '../components/SideBar';
 
 export default function Dashboard() {
-    return (
-        <div className="dashboard-container" style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>
-            <div className="dashboard-wrapper" style={{ display: "flex", flex: 1 }}>
-                {/* Sidebar */}
-                <aside className="sidebar">
-                    <div className="sidebar-logo">
-                        <img src={logo} alt="Logo" />
-                    </div>
-                    <nav className="sidebar-nav">
-                        <button className="nav-button active">📚</button>
-                        <button className="nav-button">✏️</button>
-                        <button className="nav-button">📖</button>
+  return (
+    <div className="flex min-h-screen w-screen overflow-hidden">
 
-                    </nav>
-                    <div className="sidebar-footer">
-                        <button className="nav-button">🔓</button>
-                    </div>
-                </aside>
+      {/* Sidebar */}
+      <Sidebar />
 
-                {/* Main content */}
-                <main className="dashboard-main" style={{ flexGrow: 1, padding: "20px" }}>
-                    <header className="topbar" style={{ backgroundColor: "white", padding: "10px 20px", borderRadius: "8px", marginBottom: "20px" }}>
-                        <div style={{ color: "black" }}>
-                            <strong>Nisal Gunasekara</strong>
-                            <span className="role">User</span>
-                        </div>
-                        <div className="topbar-right" style={{ color: "black" }}>
-                            <div className="time">12:29 PM</div>
-                            <div className="date">Sep 02, 2023</div>
-                            <button className="gear">⚙️</button>
-                        </div>
-                    </header>
+      {/* Main Content */}
+      <main className="flex-1 bg-[#f7f9d7] p-6 flex flex-col">
 
-                    <section className="widgets">
-                        <button className="widget" onClick={() => window.location.href = "/borrowed"}>📖 BorrowedBooks</button>
-                        <button className="widget" onClick={() => window.location.href = "/ReturnedBook"}>📤 ReturnBooks</button>
-                        <div className="widget">👆 Let's browse available book inventory</div>
-                    </section>
-
-                    <section className="chart-quote">
-                        <div className="chart-section">
-                            <div className="chart-logo" style={{ color: "black" }}>
-                                <img src={logo} alt="BookWorm Logo" />
-                                <h2>BookWorm</h2>
-                                <p>LIBRARY</p>
-                            </div>
-                            <div className="quote-box" style={{ color: "black" }}>
-                                <blockquote>
-                                    "Embarking on the journey of reading fosters personal growth, nurturing a path towards excellence and the refinement of character."
-                                </blockquote>
-                                <footer>~ BookWorm Team</footer>
-                            </div>
-                        </div>
-                        <div className="pie-chart">
-                            <svg viewBox="0 0 32 32" className="pie">
-                                <circle r="16" cx="16" cy="16" className="pie-bg" />
-                                <circle
-                                    r="16"
-                                    cx="16"
-                                    cy="16"
-                                    className="pie-fill"
-                                    strokeDasharray="35 65"
-                                />
-                            </svg>
-                            <div className="legend" style={{ color: "black" }}>
-                                <div>
-                                    <span className="dot black"></span> Total Borrowed Books
-                                </div>
-                                <div>
-                                    <span className="dot blue"></span> Total Returned Books
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                </main>
+        {/* Top Admin Bar */}
+        <div className="flex justify-between items-center mb-6">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-full bg-black text-white flex items-center justify-center font-bold">N</div>
+            <div>
+              <p className="font-semibold">Nisal Gunasekara</p>
+              <p className="text-sm text-gray-500">Admin</p>
             </div>
+          </div>
+          <div className="text-right text-sm">
+            <p className="font-semibold">12:29 PM</p>
+            <p className="text-gray-600">Sep 02, 2023</p>
+          </div>
         </div>
-    );
+
+        {/* Stats */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
+          <div className="bg-white shadow rounded p-6 text-center">
+            <div className="text-2xl mb-2">👤</div>
+            <p className="text-3xl font-bold">0150</p>
+            <p className="text-sm text-gray-600">Total User Base</p>
+          </div>
+          <div className="bg-white shadow rounded p-6 text-center">
+            <div className="text-2xl mb-2">📚</div>
+            <p className="text-3xl font-bold">1500</p>
+            <p className="text-sm text-gray-600">Total Book Count</p>
+          </div>
+        </div>
+
+        {/* Borrowers and Admins */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 flex-1">
+          
+          {/* Overdue Borrowers */}
+          <div>
+            <h3 className="text-lg font-semibold mb-2">Overdue Borrowers</h3>
+            <div className="bg-white rounded shadow p-4 space-y-4">
+              {[...Array(5)].map((_, i) => (
+                <div key={i} className="flex justify-between items-center border-b pb-2">
+                  <div className="flex items-center gap-3">
+                    <span className="text-purple-800">👤</span>
+                    <div>
+                      <p className="font-medium">Sasmith Gunasekara</p>
+                      <p className="text-sm text-gray-500">Borrowed ID: 10</p>
+                    </div>
+                  </div>
+                  <button className="text-gray-500 hover:text-black text-lg">⟳</button>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Admins */}
+          <div>
+            <h3 className="text-lg font-semibold mb-2">BookWorm Admins</h3>
+            <div className="bg-white rounded shadow p-4 space-y-4">
+              {[...Array(3)].map((_, i) => (
+                <div key={i} className="flex justify-between items-center border-b pb-2">
+                  <div className="flex items-center gap-3">
+                    <span className="text-xl">🛠️</span>
+                    <div>
+                      <p className="font-medium">Nisal Gunasekara</p>
+                      <p className="text-sm text-gray-500">Admin ID: 1</p>
+                    </div>
+                  </div>
+                  <span className="text-green-600 text-sm">● Active</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Footer Legend */}
+        <footer className="mt-8 bg-white shadow rounded p-4 flex justify-center gap-8">
+          <div className="flex items-center gap-2">
+            <span className="w-4 h-4 bg-black rounded-full" />
+            <span>Total Borrowed Books</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <span className="w-4 h-4 bg-gray-700 rounded-full" />
+            <span>Total Returned Books</span>
+          </div>
+        </footer>
+      </main>
+    </div>
+  );
 }
