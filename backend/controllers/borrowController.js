@@ -1,4 +1,5 @@
 // 📁 controllers/borrowController.js
+/*
 const service = require('../services/borrowService');
 
 exports.borrowBook = async (req, res) => {
@@ -10,3 +11,5 @@ exports.borrowBook = async (req, res) => {
         res.status(400).json({ error: err.message });
     }
 };
+
+ */

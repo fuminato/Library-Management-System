@@ -37,7 +37,7 @@ export default function Login({ onLogin }) {
         <div className="flex-1 bg-[#f7f9d7] p-10 flex flex-col justify-center">
           <div className="flex flex-col items-center mb-6">
             <FaBook className="text-4xl text-teal-700 mb-2" />
-            <h2 className="text-2xl font-bold mb-2">Welcome Back !!</h2>
+            <h2 style={{ color: "black" }}>Welcome Back !!</h2>
             <p className="text-sm text-gray-600 mb-4">
               Please enter your credentials to login
             </p>
@@ -47,6 +47,7 @@ export default function Login({ onLogin }) {
               type="text"
               name="username"
               value={form.username}
+              style={{ color: "black" }}
               onChange={handleChange}
               placeholder="Username"
               className="w-full border rounded px-4 py-2"
@@ -57,6 +58,7 @@ export default function Login({ onLogin }) {
               name="password"
               value={form.password}
               onChange={handleChange}
+              style={{ color: "black" }}
               placeholder="Password"
               className="w-full border rounded px-4 py-2"
               required
@@ -74,7 +76,7 @@ export default function Login({ onLogin }) {
             </div>
             <button
               type="submit"
-              className="w-full bg-teal-600 text-black py-2 rounded font-semibold mt-2"
+              className="w-full bg-teal-600 text-white py-2 rounded font-semibold mt-2"
             >
               SIGN IN
             </button>

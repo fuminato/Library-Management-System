@@ -13,9 +13,8 @@ export default function Dashboard() {
         {/* Top Admin Bar */}
         <div className="flex justify-between items-center mb-6">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full bg-black text-white flex items-center justify-center font-bold">N</div>
+            <div className="w-10 h-10 rounded-full bg-black text-black flex items-center justify-center font-bold">N</div>
             <div>
-              <p className="font-semibold">Nisal Gunasekara</p>
               <p className="text-sm text-gray-500">Admin</p>
             </div>
           </div>

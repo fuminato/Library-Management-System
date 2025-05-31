@@ -29,12 +29,12 @@ export default function SigninPage() {
                 <section className="panel-left">
                     <img
                         src={logoBlack}
+
                         alt="logo"
                         className="logo"
                         draggable="false"
                     />
-
-                    <h1>Welcome Back !!</h1>
+                    <h1 className="welcome-text">Welcome Back !</h1>
                     <p>Please enter your credentials to log in</p>
 
                     <form className="form-group" onSubmit={handleLogin}>

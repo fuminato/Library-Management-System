@@ -13,7 +13,6 @@ export default function BorrowedBooks() {
             <main className="content">
                 <header className="header">
                     <div className="user-info">
-                        <strong>Nisal Gunasekara</strong>
                         <span>User</span>
                     </div>
                     <div className="datetime">

@@ -13,15 +13,17 @@ export default function AdminSignInPage() {
                         draggable="false"
                     />
 
-                    <h1>Welcome Back !!</h1>
+                    <h1 style={{ color: "blue" }}>Welcome Back !!</h1>
                     <p>Please enter your credentials to log in</p>
 
                     <form className="form-group">
-                        <input className="input" placeholder="Username" />
+                        <input className="input" placeholder="Username"                             style={{ color: "black" }}
+                        />
                         <input
                             className="input"
                             type="password"
                             placeholder="Password"
+                            style={{ color: "black" }}
                         />
 
                         <a href="#" className="forgot">
